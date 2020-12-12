@@ -116,7 +116,7 @@ void defaultColor(){
 
 
 
-int rgbColor[] = {255, 0, 0};
+int rgbColor[] = {1023, 0, 0};
 int decColor = 0;
 int incColor = 1;
 
@@ -128,12 +128,12 @@ void fadeColors(){
     waitSince = millis();
     rgbColor[decColor] -= 1;
     rgbColor[incColor] += 1;
-    if(rgbColor[incColor] > 250 || rgbColor[decColor] > 250){
+    if(rgbColor[incColor] > 1010 || rgbColor[decColor] > 1010){
       waitSpan = 100;
     }else{
-      waitSpan = 10;
+      waitSpan = 5;
     }
-    if(rgbColor[incColor] == 255){
+    if(rgbColor[incColor] == 1023){
       decColor = decColor == 2 ? 0 : decColor + 1;
       incColor = incColor == 2 ? 0 : incColor + 1;
     }
