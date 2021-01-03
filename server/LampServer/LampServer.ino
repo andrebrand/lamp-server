@@ -142,7 +142,67 @@ void fadeColors(){
   return;
 }
 
+void test(){
+  int rgbColor[5];
+  
+  rgbColor[4] = 12345;
+  Serial.println(rgbColor[4]);
+  Serial.println(rgbColor[1]);
+}
 
+void testColor(){
+
+  while(true){
+    fadeOff(1023, 0, 1023);
+    
+    fadeOff(0, 1023, 1023);
+  }
+}
+void fadeOff(int red, int green, int blue){
+  int inRed = 0;
+  int inGreen = 0;
+  int inBlue = 0;  
+  applyRGB(0, 0, 0);
+  boolean isFadeIn = true;
+  while(isFadeIn){
+    if(inRed < red){
+      inRed++;  
+    }
+    if(inGreen < green){
+      inGreen++;  
+    }
+    if(inBlue < blue){
+      inBlue++;  
+    }
+    applyRGB(inRed, inGreen, inBlue);  
+    if( ((inRed + inGreen + inBlue) % 2) == 0){
+      delay(1);
+    }
+    if(inRed == red && inGreen == green && inBlue == blue){
+      isFadeIn = false;
+    }
+  }
+
+  delay(2000);
+  
+  while(red > 0 || green > 0 || blue > 0){
+    if(red > 0){
+      red--;  
+    }
+    if(green > 0){
+      green--;  
+    }
+    if(blue > 0){
+      blue--;  
+    }
+    
+    applyRGB(red, green, blue);  
+    if( ((red + green + blue) % 2) == 0){
+      delay(1);
+    }
+    
+  }
+}
 void setup(void) {
   pinMode(PinRED, OUTPUT);
   pinMode(PinGREEN, OUTPUT);
@@ -180,5 +240,5 @@ void loop(void) {
     warnColor();
   }
   //update();
-  Serial.println(MDNS.update());
+  MDNS.update();
 }
