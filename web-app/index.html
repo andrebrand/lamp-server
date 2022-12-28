@@ -1,57 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Lamp</title>
-    <link rel="stylesheet" href="aesthetic.css">
+    <link rel='stylesheet' href='bootstrap.css'>
+    <link rel='stylesheet' href='style.css'>
+    <link rel='icon' href='favicon.svg'>
 </head>
 <body>
-    <div class="window">
-        <div class="body">
-            <div class="button-wrapper">
-                <button type="button" id="modeFade" class="active">
-                    fading colors
-                </button>
-                <button type="button" id="modeStatic">
-                    static color
-                </button>
+    <div class='container mt-5'>
+        <div class='card mb-4'>
+        <div class='card-header'>
+            <h4 class='my-0 font-weight-normal'>Change lamp colour</h4>
             </div>
-
-            <div id="static-colors" class="hide">
-                <div class="body-text">
-                    Select static light color:
-                </div>
-                <div class="color-picker">
-                    <div class="color-table">
-                        <div class="inset-color red" data-name="red" data-r="1" data-g="0" data-b="0"></div><div class="inset-color pink" data-name="pink" data-r="1" data-g="0" data-b="1"></div>
-                        <div class="inset-color yellow" data-name="yellow" data-r="1" data-g="1" data-b="0"></div>
-                        <div class="inset-color green" data-name="green" data-r="0" data-g="1" data-b="0"></div>
-                        <div class="inset-color cyan" data-name="cyan" data-r="0" data-g="1" data-b="1"></div>
-                        <div class="inset-color blue" data-name="blue" data-r="0" data-g="0" data-b="1"></div>
-                        
-                        <div class="inset-color white" data-name="white" data-r="1" data-g="1" data-b="1"></div>
-                        <div class="inset-color black" data-name="black" data-r="0" data-g="0" data-b="0"></div>
+            <div class='card-body'>
+                <ul class='nav nav-tabs' id='myTab'>
+                    <li class='nav-item'>
+                      <a class='nav-link active' id='home-tab' href='/'>Colour picker</a>
+                    </li>
+                    <li class='nav-item' id='settingsTabNavItem'>
+                      <a class='nav-link' id='settings-tab' href='/settings'>Network</a>
+                    </li>
+                  </ul>
+                  <div class='tab-content'>
+                    <!-- home -->
+                    <div class='tab-pane fade active show' id='home'>
+                        <div class='container p-0 mb-3'>
+                            <div class='form-check'>
+                                <input class='form-check-input' type='radio' name='gridRadios' id='gridRadios1' value='fade' checked='checked'>
+                                <label class='form-check-label' for='gridRadios1'>
+                                    Fading Colours
+                                </label>
+                            </div>
+                            <div class='form-check mt-2'>
+                                <input class='form-check-input' type='radio' name='gridRadios' id='gridRadios2' value='static' checked=''>
+                                <label class='form-check-label' for='gridRadios2'>
+                                    Static colour
+                                </label>
+                            </div>
+                        </div>
+                        <div id='color-wrapper'>
+                            <div>
+                                <div class='container p-0' id='color-table'>
+                                    <div class='card box red pointer colorButton' id='red'></div>
+                                    <div class='card box pink pointer colorButton' id='pink'></div>
+                                    <div class='card box yellow pointer colorButton' id='yellow'></div>
+                                    <div class='card box green pointer colorButton' id='green'></div>
+                                    <div class='card box cyan pointer colorButton' id='cyan'></div>
+                                    <div class='card box blue pointer colorButton' id='blue'></div>
+                                    <div class='card box white pointer colorButton' id='white'></div>
+                                    <div class='card box black pointer colorButton' id='black'></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div id='preview-wrapper' class='card inverted p-4'>
+                                    <div class='card box inverted red preview fade' id='colorPreview'></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="selected-color-wrapper">
-                        <div class="selected-color white" data-color="white"></div>
+                    <!-- settings -->
+                    <div class='tab-pane fade' id='settings'>
+                        <form action='#' id='networkForm'>
+                            <div>
+                                <label for='inputSSID'>Wifi name</label>
+                                <div class='input-and-button'>
+                                    <input type='text' class='form-95' id='inputSSID'>
+                                    <button type='button' id='wifiValueHelp' class='btn ml-2 btn-primary'>?</button>
+                                </div>
+                            </div>
+                            <div class='mt-1'>
+                                <label for='inputPW' >Wifi password</label>
+                                <input type='password' class='form-95' id='inputPW'>
+                            </div>
+                            <div class='text-right'>
+                                <button type='submit' id='submitWifi' class='btn btn-primary mt-2'>Submit</button>
+                            </div>
+                        </form>
                     </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class='modal fade' id='modal' tabindex='-1'>
+        <div class='modal-dialog' id='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <h5 class='modal-title' id='modalLabel'></h5>
+                    <button type='button' class='btn' id='closeModalX'>
+                        <span id='x'>×</span>
+                    </button>
                 </div>
-                <div class="button-wrapper">
-                    <button type="button" id="applyColor">
-                        apply color
-                    </button>
-                    <button type="button" id="cancelColor">
-                        cancel selection
-                    </button>
+                <div class='modal-body'>
+                    <div class='modal-icon-wrapper'>
+                        <img class='modal-icon' id='error-icon' src='error.svg' width='50px' />
+                        <img class='modal-icon' id='info-icon' src='info.svg' width='50px' />
+                    </div>
+                    <div id='modalContent' class='ml-3'></div>
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-primary' id='closeModal'>Close</button>
                 </div>
             </div>
         </div>
     </div>
-    <script
-        src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-        crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <div id='backdrop' class='modal-backdrop fade'></div>
+    <script src='script.js'></script>
 </body>
 </html>

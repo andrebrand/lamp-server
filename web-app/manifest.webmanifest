@@ -1,0 +1,20 @@
+{
+"name": "Andi's Lampe",
+"short_name": "Lampe",
+"start_url": "/",
+"display": "standalone",
+"theme_color": "#5872c1",
+"background_color":"#5872c1",
+"icons": [
+   {
+      "src": "icon.svg",
+      "sizes": "150x150",
+      "type": "image/svg+xml"
+   },
+   {
+      "src": "icon.svg",
+      "sizes": "520x520",
+      "type": "image/svg+xml"
+   }
+]
+}

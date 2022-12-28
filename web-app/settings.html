@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamp</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.svg">
+</head>
+<body >
+    <div class="container mt-5">
+        <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Change lamp colour</h4>
+            </div>
+            <div class="card-body">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="nav-item">
+                      <a class="nav-link" id="home-tab" href="/">Colour picker</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" id="settings-tab" href="/settings">Network</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane fade active show" style="display:block;" id="settings">
+                        <div>
+                            <label for="inputSSID" >Wifi name</label>
+                            <input type="text" class="form-95" id="inputSSID">
+                        </div>
+                        <div class="mt-1">
+                            <label for="inputPW" >Wifi password</label>
+                            <input type="password" class="form-95" id="inputPW">
+                        </div>
+                        <div class="text-right">
+                            <button type="button" id="submitWifi" class="btn btn-primary mt-2">Submit</button>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Modal title</h5>
+                    <button type="button" class="btn" id="closeModalX">
+                        <span id="x">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                    ölakjsdfölkj
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="closeModal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="backdrop" class="modal-backdrop fade"></div>
+    <script src="script.js"></script>
+</body>
+</html>

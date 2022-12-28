@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamp</title>
+    <link rel="icon" href="icon.svg">
+    <link rel="stylesheet" href="aesthetic.css">
+    <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body id="settings">
+    <div class="window">
+        <div class="body">
+            <label>
+                WIFI Name:
+                <input type="text" value="" name="SSID" id="ssid">
+            </label>
+            <label>
+                Password:
+                <input type="password" value="" name="PW" id="wifipw">
+            </label>
+            <button id="submitWifi">
+                Connect
+            </button>
+        </div>
+    </div>
+    <script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        };
+    </script>
+    <script src="script_settings.js">
+</body>
+</html>

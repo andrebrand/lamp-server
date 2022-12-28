@@ -8,6 +8,11 @@ body{
     --ButtonDkShadow: rgb(0, 0, 0);
     --windowHeadline: "Change lamp color";
 }
+
+body#settings{
+    --windowHeadline: "Wifi Login";
+}
+
 body{
     background-color: #5872c1;
     height:calc(100vh - (2 * var(--body-padding)));
@@ -16,7 +21,7 @@ body{
     padding:0;
     display: grid;
     grid-template-columns: calc(100%);
-    font-family:"MS Sans Serif";
+    font-family: Tahoma;
     font-size:12px;
 }
 .body-text{
@@ -131,7 +136,6 @@ body{
     position: relative;
 }
 .window::before{
-    font-family: Tahoma;
     font-weight: bold;
     color: #fff;
     content: var(--windowHeadline);
@@ -148,7 +152,6 @@ body{
 .window::after{
     content: "X";
     position: absolute;
-    font-family: Tahoma;
     font-weight: bold;
     text-align: center;
     font-size: 9px;
@@ -225,4 +228,15 @@ button:active, button.active{
     border-right: 2px solid #000;
     border-left: 2px solid #000;
     border-top: 2px solid #000;
+}
+
+label{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+label input{
+    display: block;
+    width: 80%;
 }
